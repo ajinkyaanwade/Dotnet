@@ -1,0 +1,7 @@
+C:\vita\.net\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\vita\.net\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\vita\.net\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\vita\.net\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\vita\.net\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\vita\.net\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\vita\.net\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
