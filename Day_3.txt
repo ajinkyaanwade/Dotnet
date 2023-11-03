@@ -1,0 +1,355 @@
+/*1) Create a Student class with member variables name, maths, science, eng.
+create a method which will return total marks [300]
+create a method which will display name and total.*/
+using System;
+
+namespace Marks
+{
+    public class Student
+    {
+        string name;
+        int math, science, eng;
+        int marks;
+        public void set_name(string name)
+        {
+            this.name = name;
+        }
+        public string get_name()
+        {
+            return name;
+        }
+        public void set_math(int math)
+        {
+            this.math = math;
+        }
+        public void set_science(int science)
+        {
+            this.science = science;
+        }
+        public void set_eng(int eng)
+        {
+            this.eng = eng;
+        }
+        public int get_marks()
+        {
+            return marks=math+eng+science;
+        }
+        public void dispaly()
+        {
+            get_name();
+            get_marks();
+            Console.WriteLine("name = {0}     marks = {1}", name, marks);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using Marks;
+namespace ConsoleApp1
+{
+    public class Math
+    {
+        public static void Main(String[] args)
+        {
+            Student s1 = new Student();
+            s1.set_name("Ajinkya");
+            s1.set_math(90);
+            s1.set_eng(90);
+            s1.set_science(90);
+            s1.dispaly();
+        }
+    }
+}
+====================================================================================================
+/*2) Create a class Account having member name, id, balance
+create a method public void deposit(int amt){balance = balance + amt}
+create a method withdraw public void withdraw(int amt){balance=balance-amt}
+create display method which will display name and balance
+create two objects and do transaction.*/
+using System;
+
+namespace Bank
+{
+    public class Account
+    {
+        string name;
+        int id, balance;
+        public Account(string name, int id, int balance)
+        {
+            this.name = name;
+            this.id = id;
+            this.balance = balance;
+        }
+
+        public void deposit(int amt)
+        {
+            balance = balance+amt;
+            display();
+        }
+        public void withdraw(int amt)
+        {
+            balance= balance-amt;
+            display();
+        }
+        public void display()
+        { 
+            Console.WriteLine("name={0} current balance ={1}", name, balance);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using Bank;
+namespace ConsoleApp1
+{
+    public class Math
+    {
+        public static void Main(String[] args)
+        {
+            Account a1 = new Account("ajinkya",01,100000);
+            a1.deposit(1000);
+            a1.withdraw(1000);
+            a1.display();
+            Account a2 = new Account("sushil",02,100000);
+            a2.deposit(1000);
+            a2.withdraw(1000);
+            a2.display();
+        }
+    }
+}
+=========================================================================================
+/*Create a Student class with member variables name, maths, science, eng.
+create a method which will return total marks [300]
+create a method which will display name and total.
+3)Open previous example of Class Student, as soon as code
+is executed it should print the name of the school.*/
+using System;
+
+namespace School
+{
+    public class Student
+    {
+        string name;
+        int maths, science, eng;
+        int marks;
+        static Student()
+        {
+            Console.WriteLine("sane guruji vidhyalay");
+        }
+        public Student(string name, int maths, int science, int eng)
+        {
+            this.name = name;
+            this.maths = maths;
+            this.science = science;
+            this.eng = eng;
+        }
+        public int get_marks()
+        {
+            return marks = science + eng+maths;
+        }
+        public void display()
+        {
+            get_marks();
+            Console.WriteLine("name = {0}   marks = {1}", name, marks);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using School;
+namespace ConsoleApp1
+{
+    public class Math
+    {
+        public static void Main(String[] args)
+        {
+           Student s1=new Student("ajinkya",100,100,100);
+            s1.display();
+            Student s2 = new Student("sushil", 100, 100, 100);
+            s2.display();
+        }
+    }
+}
+==================================================================================================
+/*5) Create class Employee having memberId, Name, Salary, NetSalary, Dept d
+create enum Dept{MKT,ADMIN,ADV}
+create method public double paytax(double p){return tax amount and set
+netsalary(note:netsalary=salary-salary*p%)}
+create method display to display name and netsalary and department
+when you load application it should print name of company. 
+new Employee(1,"Raj",50000,Dept.MKT)*/
+using System;
+
+namespace Company
+{
+    enum Dept { Mkt = 1, Admin = 2, Adv = 3 };
+    class Employee
+    {
+        int memberId;
+        double salary, netsalary;
+        string name;
+        Dept d;
+        static Employee()
+        {
+            Console.WriteLine("Marvel Studio");
+        }
+        public Employee(int memberId, string name, double salary, Dept d)
+        {
+            this.memberId = memberId;
+            this.salary = salary;
+            this.name = name;
+            this.d = d;
+        }
+
+        public double paytax(double p)
+        {
+            double tax = salary * p;
+            salary = salary - tax;
+            Console.WriteLine("your tax is " + tax);
+            return tax;
+        }
+        public void display()
+        {
+            Console.WriteLine("name = {0}   netsalary = {1}    department = {2}", name,salary,d);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using Company;
+namespace ConsoleApp1
+{
+    public class Math
+    {
+        public static void Main(String[] args)
+        {
+            Employee e1 = new Employee(1, "Raj", 50000, Dept.Mkt);
+            Console.WriteLine(e1);
+            e1.paytax(0.12);
+            e1.display();
+        }
+    }
+}
+=====================================================================================================
+
+/*6) create a Account class having instance member id,firstname,lastname,
+ * middlename,bal.Id should be generated by your application.Interest rate for
+ * account is 7%.
+It has instance method public void deposit(double amt) who's job is to increase
+the instance balance.It has instance method public void withdraw(double amt)
+who's job is to reduce the instance balance. It has static method payint
+(public static double payint(Account obj)) who's job is to calculate interest
+of each saving account holder and increase balance and return interest amount.
+create instance method display 	who's job is to display name and bal.
+create 3 object of account class.As soon as application load it should display 
+name of bank. create 3 constructor let one constructor write logic to validate 
+firstname can not be <3 character.*/
+using System;
+using System.Security.Permissions;
+
+namespace Bank
+{
+    class Account
+    {
+        int id;
+        string firstname, lastname, middlenme;
+        double balance;
+        static double interest_rate = 0.07;
+        static int getid;
+        static Account()
+        {
+            Console.WriteLine("Bank of India");
+        }
+        public Account(string firstname,double balance) :
+            this(firstname, "", "",balance)
+        {
+
+        }
+        public Account(string firstname,string lastname,double balance) :
+            this(firstname,lastname,"",balance)
+        {
+
+        }
+        public Account(string firstname,string lastame,string middlename,double balance) 
+        {
+            if(firstname.Length < 3)
+            {
+                throw new Exception("please enter valid Firstname");
+            }
+            id = ++getid;
+            this.firstname = firstname;
+            this.lastname = lastame;
+            this.middlenme = middlename;
+            this.balance = balance;
+        }
+        public void deposit(double amt)
+        {
+            balance = balance+amt;
+        }
+        public void withdraw(double amt)
+        {
+            balance = balance-amt;
+        }
+        public static double payint(Account obj)
+        {
+            double interest = obj.balance * interest_rate;
+            obj.balance = obj.balance+income;
+            return interest;
+        }
+        public string display()
+        {
+            return string.Format("id= {0},firstname= {1},balance= {2} ", id,firstname,balance);
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using Bank;
+namespace BankDemo
+{
+    public class AccountDemo
+    {
+        public static void Main(String[] args)
+        {
+            Account a1=new Account("Ajinkya",100000);
+            Account a2=new Account("Sushil", "Gavit", 50000);
+            Account a3 = new Account("Akshay","arrr","shinde", 60000);
+            a1.deposit(100000);
+            a1.withdraw(20000);
+            a2.deposit(50000);
+            a3.withdraw(1000);
+            Console.WriteLine(a1.display());
+            Console.WriteLine(a2.display());
+            Console.WriteLine(a3.display());
+            Console.WriteLine("interest on account 1 is "+Account.payint(a1));
+            Console.WriteLine("interest on account 2 is "+Account.payint(a2));
+            Console.WriteLine("interest on account 3 is "+Account.payint(a3));
+        }
+    }
+}
+
