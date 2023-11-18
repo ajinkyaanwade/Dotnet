@@ -19,7 +19,7 @@ namespace Bank
         int id;
         static int getid;
         string name;
-        double balance;
+        double balance ;
         static float InterestRate = 0.07f;
         const float minbal = 1000;
         double interest;
