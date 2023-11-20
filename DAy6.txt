@@ -1,0 +1,247 @@
+1)Write a method which will return sum of digit and using out variable let it send count of digit also. i/p input 123 return 6 in out  varible (3) 
+sol:
+
+using System.Security.Principal;
+
+namespace taskcomplete
+{
+    internal class Program
+    {
+        public static int sum_of_numbers(int num, out int var)
+        {
+            var = 0;
+            int sum = 0;
+            while(num > 0) 
+            {
+                var++;
+                sum = sum + (num % 10);
+                num /= 10;
+            }
+            return sum;
+        }
+        static void Main(string[] args)
+        {
+            int num = 123456;
+            int count;
+            Console.WriteLine("sum of digits :"+sum_of_numbers(num,out count));
+            Console.WriteLine("count of digits :" + count);
+        }
+    }
+}
+===========================================================
+2)Write a method which will accept two number and return all even number between it as array and also give count in out variable.
+int count;
+int[] result = Dojob(5,30);
+sol:
+
+
+using System;
+using System.ComponentModel.Design;
+
+namespace Program
+{
+    public class Demo
+    {
+        public static int[] dojob(int start,int end,out int count)
+        {
+            count = 0;
+            int[]even = new int[((end-start)+1)/2];
+            while (start <= end)
+            {
+                if (start % 2 == 0)
+                {
+                    even[count++] = start;
+                    start = start + 2;
+                }
+                else
+                {
+                    even[count++] = start + 1;
+                    start = start + 2;
+                }
+            }
+            return even;
+        }
+       public static void Main(string[] args)
+        {
+            int count;
+            int[] result = dojob(5, 30, out count);
+            foreach(int i in result) 
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+================================================================
+3)
+
+
+using System;
+using System.ComponentModel.Design;
+using taskcomplete;
+
+namespace Program
+{
+    public class Demo
+    {
+       public static void Main(string[] args)
+        {
+            CurrentAccount a1 = null;
+            Saving_Account a2 = null;
+            try
+            {
+                a1 = new CurrentAccount(1, "Akshay", -10000);
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                a2 = new Saving_Account(1, "Ajinkya", 200000);
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
+            a1.deposit(50000);
+            a2.deposit(100000);
+            try 
+            {
+                a1.withdraw(10000);
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex);
+            }
+            try
+            {
+                a2.withdraw(100000);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            a1.display();
+            a2.display();
+       }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace taskcomplete
+{
+    internal class Account
+    {
+        int id;
+        string name;
+        double balance;
+        double intrest;
+        static float Intrestrate = 0.7f;
+        public int Id
+        {
+            set { id = value; }
+            get { return id; }
+        }
+        public string Name
+        {
+            set { name = value; }
+            get { return name; }
+        }  
+        public double Balance
+        {
+            set { balance = value; }
+            get { return balance; }
+        }
+        public double Intrest
+        {
+            set { intrest = value; }
+            get { return intrest; }
+        }
+        static Account()
+        {
+            Console.WriteLine("Bank of India");
+        }
+        public Account(int id, string name, double balance)
+        {
+            Id = id;
+            Name = name;
+            Balance = balance;
+        }
+        public void deposit(int amt)
+        {
+            if(amt > 0) 
+            {
+                balance = balance + amt;
+            }
+        }
+        public void withdraw(int amt)
+        {
+            balance=balance-amt;
+        }
+        public static double payInt(Account obj)
+        {
+            obj.Intrest = obj.balance * Intrestrate;
+            obj.balance = obj.balance+obj.intrest;
+            return obj.Intrest;
+        }
+        public void display()
+        {
+            Console.WriteLine("Id {0} Name {1} Balance {2} ",id,name,balance);  
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace taskcomplete
+{
+    internal class Saving_Account:Account
+    {
+        public Saving_Account(int id,string name,double balance):base(id,name,balance)
+        {
+            
+        }
+        public void withdraw(int amt)
+        {
+            if((Balance-amt)>1000)
+            {
+                base.withdraw(amt);
+            }
+            else
+            {
+                throw new Exception("insufficient balance");
+            }
+        }
+
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace taskcomplete
+{
+    internal class CurrentAccount:Account
+    {
+        public CurrentAccount(int id,string name,double balance):base(id,name,balance) 
+        {
+            
+        }
+
+    }
+}
+
+
