@@ -14,7 +14,7 @@ namespace taskcomplete
             while(num > 0) 
             {
                 var++;
-                sum = sum + (num % 10) ;
+                sum = sum + (num % 10);
                 num /= 10;
             }
             return sum;
